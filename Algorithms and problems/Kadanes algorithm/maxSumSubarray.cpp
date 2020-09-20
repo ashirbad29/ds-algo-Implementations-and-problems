@@ -20,7 +20,7 @@ int kadanasAlgo(vector<int> arr) {
 }
 
 int main() {
-	vector<int> arr = {-2,1,-3,4,-1,2,1,-5,4}
+	vector<int> arr = {-2,1,-3,4,-1,2,1,-5,4}; // 6
 	cout << kadanasAlgo(arr) << endl;
 	return 0;
 }

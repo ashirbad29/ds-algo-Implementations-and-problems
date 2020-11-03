@@ -3,19 +3,18 @@
 #include <vector>
 using namespace std;
 
-vector<bool> seiveOfErtoSthenes(int n){
-	vector<bool> primes(n+1);
-	// assuming all numbers are prime
-	fill(primes.begin(), primes.end(), true);
+vector<bool> seiveOfErtoSthenes(int N){
+	vector<bool> is_prime(N+1, true);
+	is_prime[0] = is_prime[1] = false;
 
-	primes[0] = primes[1] = false;
-	for(int i = 2; i * i <= n; i++) {
-		// marking multiples of i as false
-		for (int j = 2 * i; j <= n; j += i){
-			primes[j] = false;
+	for(int i = 2; i * i <= N; i++) {
+		if(is_prime[i]) {
+			// marking multiples of i as false
+			for (int j = i + i; j <= N; j += i)
+				is_prime[j] = false;
 		}
 	}
-	return primes;
+	return is_prime;
 }
 
 int main() {
